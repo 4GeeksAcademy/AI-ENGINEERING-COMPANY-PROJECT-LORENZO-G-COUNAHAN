@@ -11,4 +11,18 @@ El segundo aspecto interesante es el de los alérgenos.  Si esto se combina con 
 RETO DE AUTOMATIZACIÓN:
 Veo dos vías de apoyo con la IA en los restaurantes:  previsión de ventas en base al clima/partidos de futbol y efecto calendario para ajustar pedidos y utilización de la IA cruzado con ventas, existencias iniciales y compras para generar un stock teórico para validar.
 
-
+MI IDEA DE AGENTE DE IA:
+Utilizar IA para prever ventas de locales en base a:
+ condiciones atmosféricas, por ejemplo:
+    temperaturas altas --> mayor venta en terraza
+    lluvia moderada e intensa --> pérdida de venta en terrazas pero incremento en locales en Centros Comerciales y canal Delivery
+    temperaturas moderadas y despejadas --> caída de venta en delivery bajo condiciones normales
+  existencia de partidos de futbol relevante (liga, champions, mundial)
+    impacto en canal delivery con partidos del RM y AM, en menor medida, BCN cuando partido es en hora punta
+    caída de ventas en restaurantes sin pantallas o licencia de transmición de partido
+    incremento de venta en restaurantes próximos a Estadio SB
+  Efecto calendario en ventas comparables y previsión de ventas
+    incremento de venta comparable en víspera de festivo
+    caída de venta en delivery en fin de semana con festivo en viernes o lunes
+    caída de venta en verano en MAD
+      
