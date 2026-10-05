@@ -16,19 +16,76 @@ Veo dos vías de apoyo con la IA en los restaurantes:
 ###Utilización de la IA para generar un sistema de validación de pedidos a proveedor dependiendo de previsión de ventas e inventario.
 
 ##MI IDEA DE AGENTE DE IA:
-Creación de sistema de previsión de ventas y pedidos
-###¿Qué haría?
-Prever ventas en base a 3 variables:
-histórico de ventas (en euros) y product mix (mix de venta)
-variables atmosféricas en tiempo real
-efecto calendario (puentes, festivos, estacionalidad y vacaciones)
-###¿Qué necesitaría?
-Histórico de ventas
-Product mix histórico
-Conexión API Weather Service
-Conexión calendario liga
-Escandallos con productos de venta
-Inventarios
+**Agente Inteligente de Previsión de Ventas y Validación de Pedidos (Forecast & Order AI Agent)**
 
-###¿Qué produciría?
-Dashboard de previsión de ventas con recomendación de pedidos a proveedor y mise en place en cocina así como una propuesta de personal mínimo para llevar el servicio.
+Un sistema autónomo basado en IA que integra los dos retos de automatización en un único flujo inteligente: primero predice la demanda con precisión y luego valida/automatiza los pedidos a proveedor en coherencia con esa predicción y el inventario real.
+
+### 🔗 Relación directa con los Retos de Automatización
+
+| Reto de Automatización | Cómo lo resuelve el Agente |
+|---|---|
+| **Reto 1:** Previsión de ventas (clima, fútbol, calendario) | El agente orquesta datos meteorológicos, eventos deportivos y efecto calendario para generar un forecast diario con confianza estadística. |
+| **Reto 2:** Validación de pedidos a proveedor (previsión + inventario) | El agente cruza el forecast con el inventario actual y los escandallos, y decide qué pedidos son necesarios, rechazando o ajustando los que no encajen. |
+
+---
+
+### ¿Qué haría?
+
+1. **Prever ventas** usando 4 variables principales:
+   - Histórico de ventas (€) + product mix (% de cada artículo vendido)
+   - Variables atmosféricas en tiempo real (lluvia, temperatura, eventos climáticos)
+   - Efecto calendario (puentes, festivos, estacionalidad, periodos vacacionales)
+   - Eventos deportivos (partidos de fútbol de la liga local, especialmente relevante en días de servicio)
+
+2. **Validar y generar pedidos a proveedor**:
+   - Comparar el stock actual contra el forecast de ventas
+   - Aplicar reglas de negocio (stock mínimo, rotación, frescura de producto)
+   - Generar pedidos optimizados o rechazar pedidos entrantes que no se ajusten a la previsión
+
+3. **Aprender y ajustarse**:
+   - Retroalimentación del error de predicción frente a ventas reales
+   - Ajuste automático de pesos de las variables (ej. si el clima fue poco relevante, reducir su peso)
+
+---
+
+### ¿Qué necesitaría?
+
+- **Histórico de ventas** diario (mínimo 2 años idealmente)
+- **Product mix histórico** (qué productos se vendieron y en qué proporción)
+- **Conexión a API meteorológica** (OpenWeather, AEMET u similar)
+- **Conexión a calendario deportivo** (API de la liga de fútbol)
+- **Escandallos actualizados** (recetas con productos y cantidades)
+- **Inventario en tiempo real** (stock actual de cada producto)
+- **Catálogo de proveedores** (precios, plazos de entrega, pedido mínimo)
+- **Reglas de negocio** (márgenes, rotación recomendada, frescura)
+
+---
+
+### ¿Qué produciría?
+
+| Output | Descripción |
+|---|---|
+| **📊 Dashboard de previsión de ventas** | Visualización diaria/semanal con forecast, bandas de confianza y comparativa vs real |
+| **📋 Recomendación de pedidos a proveedor** | Lista de productos a pedir, cantidad, proveedor sugerido y precio estimado |
+| **👨‍🍳 Propuesta de mise en place** | Cantidades necesarias en cocina por producto para cubrir la previsión |
+| **👥 Staff mínimo recomendado** | Cálculo de personal necesario según el volumen de ventas previsto |
+| **✅ Validación automática de pedidos** | Acepta, rechaza o ajusta pedidos entrantes de proveedores según forecast + inventario |
+
+---
+
+### Arquitectura propuesta (multi-agente opcional)
+
+Para escalar el sistema, podría dividirse en **sub-agentes especializados**:
+
+```
+┌─────────────────────────────────────────────────┐
+│            ORCHESTRATOR AGENT                    │
+│  (coordina, prioriza y expone resultados)        │
+├──────────┬──────────┬───────────┬────────────────┤
+│ Forecast │ Inventory│  Order    │   Calendar     │
+│  Agent   │  Agent   │Validator  │   & Weather    │
+│          │          │  Agent    │    Agent       │
+└──────────┴──────────┴───────────┴────────────────┘
+```
+
+Cada sub-agente puede ejecutarse de forma independiente y el orquestador consolida la salida final en el dashboard.
