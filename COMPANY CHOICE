@@ -1,28 +1,34 @@
-EMPRESA ELEGIDA:   
-BRASALAND
+#EMPRESA ELEGIDA: BRASALAND
 
-RAZÓN: 
+##RAZÓN: 
 Estoy muy familizarizado con la problemática de las operaciones en Hostelería. Creo que hay retos muy interesantes y pocas veces se encuentran programas que engloben soluciones armónicas.
 
-PROYECTOS DE DEPARTAMENTO: 
-Me interesa enormemente la dinámica de pedidos automatizados.  Es un punto crítico de las operaciones.  La cadena lógica de Previsión de ventas-Inventario-existencias de stock-pedido y validación puede parecer sencillo pero suele tener muchos problemas.
-El segundo aspecto interesante es el de los alérgenos.  Si esto se combina con escandallos y registro de ventas, se puede ofrecer un programa que ayuda a la previsión y gestión al momento del restaurante.
+##PROYECTOS DE DEPARTAMENTO: 
+###DEPARTAMENTO DE OPERACIONES: 
+Dashboard de ventas en tiempo real y pedidos automatizados.  Es un punto crítico de las operaciones.  La cadena lógica de Previsión de ventas-Inventario-existencias de stock-pedido y validación puede parecer sencillo pero suele tener muchos problemas.
 
-RETO DE AUTOMATIZACIÓN:
-Veo dos vías de apoyo con la IA en los restaurantes:  previsión de ventas en base al clima/partidos de futbol y efecto calendario para ajustar pedidos y utilización de la IA cruzado con ventas, existencias iniciales y compras para generar un stock teórico para validar.
+###DEPARTAMENTO SUPLY CHAIN: 
+Plataforma de proveedores con historial de precios e información consolidada. Debido al potencial cruce de información relevante con ventas y pedidos para generar un FoodCost dinámico.  Puede ser la base de un sistema informático crucial para la gestión óptima del negocio.
 
-MI IDEA DE AGENTE DE IA:
-Utilizar IA para prever ventas de locales en base a:
- condiciones atmosféricas, por ejemplo:
-    temperaturas altas --> mayor venta en terraza
-    lluvia moderada e intensa --> pérdida de venta en terrazas pero incremento en locales en Centros Comerciales y canal Delivery
-    temperaturas moderadas y despejadas --> caída de venta en delivery bajo condiciones normales
-  existencia de partidos de futbol relevante (liga, champions, mundial)
-    impacto en canal delivery con partidos del RM y AM, en menor medida, BCN cuando partido es en hora punta
-    caída de ventas en restaurantes sin pantallas o licencia de transmición de partido
-    incremento de venta en restaurantes próximos a Estadio SB
-  Efecto calendario en ventas comparables y previsión de ventas
-    incremento de venta comparable en víspera de festivo
-    caída de venta en delivery en fin de semana con festivo en viernes o lunes
-    caída de venta en verano en MAD
-      
+##RETO DE AUTOMATIZACIÓN:
+Veo dos vías de apoyo con la IA en los restaurantes: 
+###Sistema de previsión de ventas en base al clima/partidos de futbol y efecto calendario para ajustar pedidos y 
+###Utilización de la IA para generar un sistema de validación de pedidos a proveedor dependiendo de previsión de ventas e inventario.
+
+##MI IDEA DE AGENTE DE IA:
+Creación de sistema de previsión de ventas y pedidos
+###¿Qué haría?
+Prever ventas en base a 3 variables:
+histórico de ventas (en euros) y product mix (mix de venta)
+variables atmosféricas en tiempo real
+efecto calendario (puentes, festivos, estacionalidad y vacaciones)
+###¿Qué necesitaría?
+Histórico de ventas
+Product mix histórico
+Conexión API Weather Service
+Conexión calendario liga
+Escandallos con productos de venta
+Inventarios
+
+###¿Qué produciría?
+Dashboard de previsión de ventas con recomendación de pedidos a proveedor y mise en place en cocina así como una propuesta de personal mínimo para llevar el servicio.
