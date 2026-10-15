@@ -70,7 +70,8 @@ done <<< "$staged"
 # 3. Cambios en workflows/ exigen especificación SDD (bloqueante)
 # ---------------------------------------------------------------------------
 workflow_dirs=$(git diff --cached --name-only --diff-filter=ACMR \
-  | cut -d'/' -f2 | sort -u | grep -v '^$')
+  | grep '^workflows/' \
+  | cut -d'/' -f2 | sort -u | grep -v '^$') || true
 blocked=0
 for name in $workflow_dirs; do
   spec="workflows/$name/README.md"
