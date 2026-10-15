@@ -12,5 +12,6 @@ Each subfolder under `agents/` should represent **one concrete agent** (for exam
 | Agent | Purpose | Documentation |
 |---|---|---|
 | `sdd-workflow-agent` | Turns workflow requests into reviewed specifications, implementation plans, and (when requested) n8n exports using Spec-Driven Development. | [README](./sdd-workflow-agent/README.md) |
+| `commit-protocol-agent` | Enforces the mandatory pre-commit protocol (secrets, integrity, code quality, tests, project rules) to preserve project functionality. | [README](./commit-protocol-agent/README.md) |
 
 > _Spanish version: [README.es.md](./README.es.md)._
