@@ -11,7 +11,7 @@
 Proyecto: Brasaland AI Engineering
 Inicio:   2026-10-15
 Fase:     Inicial (Definición y estructura)
-Estado:   ⚡ 9 elementos completos · 15 pendientes
+Estado:   ⚡ 11 elementos completos · 15 pendientes
 ```
 
 ---
@@ -25,6 +25,8 @@ Estado:   ⚡ 9 elementos completos · 15 pendientes
 | **COMPANY CHOICE** | ✅ Completado | Empresa elegida, razón, proyectos por departamento y definición del agente IA |
 | **Shared types** | ✅ Esqueleto | `packages/shared/types/index.ts` con `Id` y `BaseEntity` |
 | **skills/data-analysis/** | ✅ Incluido | Script `pandas_clean.py` + `common_metrics.md` |
+| **skills/tdd/** | ✅ Incluido | Skill TDD de `mattpocock/skills` reubicada a `skills/tdd/` (SKILL.md, tests.md, mocking.md) y mejorada (Objective, Inputs, Acceptance Criteria) |
+| **skills/code-review/** | ✅ Incluido | Skill de revisión de código creada desde cero: SKILL.md, checklist, severidades, ejemplos bueno/malo y `review_diff.sh` |
 | **agents/skills/README.md** | ✅ Creado | Catálogo con 4 skills definidos (forecast, inventory, order-validation, weather-calendar) |
 | **agents/_template/** | ✅ Template | Plantilla base para nuevos agentes con estructura y tests |
 | **Devcontainer** | ✅ Configurado | `.devcontainer/` listo para desarrollo |
@@ -107,15 +109,19 @@ Estado:   ⚡ 9 elementos completos · 15 pendientes
 | 2026-10-15 | 🏁 Inicio del proyecto | Estructura del monorepo revisada. Contexto de Brasaland cargado. |
 | 2026-10-15 | 📁 `agents/skills/` creado | Catálogo de skills con 4 skills definidos para Brasaland |
 | 2026-10-15 | 📁 `memory-bank/` creado | Documentación de memoria dividida en 3 archivos: `projectbrief.md`, `techContext.md`, `progress.md` |
+| 2026-10-15 | 📁 `skills/tdd/` incorporada | Skill TDD de `mattpocock/skills` reubicada a ubicación canónica y mejorada (Objective, Inputs, Acceptance Criteria) |
+| 2026-10-15 | 📁 `skills/code-review/` creada | Skill de revisión de código completa (checklist, severidades, ejemplos, script de diff) |
+| 2026-10-15 | 🤖 Agentes creados | `sdd-workflow-agent` (diseño de workflows SDD) y `commit-protocol-agent` (protocolo pre-commit obligatorio) |
 
 ---
 
 ## 6. Métricas de Progreso
 
 ```
-Hitos completados:   3/8  (37%)
+Hitos completados:   4/8  (50%)
 Skills definidos:    4/4  (100% en README, 0% con SKILL.md)
-Agentes creados:     0/1  (0%)
+Skills globales:     2/—  (tdd, code-review incorporadas)
+Agentes creados:     2/—  (sdd-workflow-agent, commit-protocol-agent)
 Servicios (API):     0/1  (0%)
 Datasets:            0/4  (0%)
 Dashboards:          0/2  (0%)

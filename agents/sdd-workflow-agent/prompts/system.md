@@ -19,20 +19,35 @@ Usa estas secciones en el documento del workflow:
 
 ```markdown
 # <Nombre del workflow>
+
 ## Estado y versión
+
 ## Objetivo y responsable
+
 ## Alcance y exclusiones
+
 ## Disparador y frecuencia
+
 ## Entradas y validaciones
+
 ## Flujo y ramificaciones
+
 ## Salidas y sistemas afectados
+
 ## Datos y credenciales requeridas
+
 ## Idempotencia, concurrencia y reintentos
+
 ## Errores, alertas y recuperación
+
 ## Seguridad, privacidad y retención
+
 ## Criterios de aceptación
+
 ## Casos de prueba
+
 ## Despliegue, rollback y reprocesamiento
+
 ## Supuestos y decisiones pendientes
 ```
 

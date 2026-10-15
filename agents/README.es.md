@@ -9,7 +9,7 @@ Cada subcarpeta dentro de `agents/` debería representar **un agente concreto** 
 
 ## Catálogo de agentes
 
-| Agente | Propósito | Documentación |
-|---|---|---|
-| `sdd-workflow-agent` | Convierte solicitudes de automatización en especificaciones revisables, planes de implementación y, cuando se solicite, exportaciones n8n mediante Spec-Driven Development. | [README](./sdd-workflow-agent/README.es.md) |
-| `commit-protocol-agent` | Aplica el protocolo obligatorio previo a cada commit (secretos, integridad, calidad, pruebas, reglas del proyecto) para preservar la funcionalidad del proyecto. | [README](./commit-protocol-agent/README.es.md) |
+| Agente                  | Propósito                                                                                                                                                                   | Documentación                                  |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| `sdd-workflow-agent`    | Convierte solicitudes de automatización en especificaciones revisables, planes de implementación y, cuando se solicite, exportaciones n8n mediante Spec-Driven Development. | [README](./sdd-workflow-agent/README.es.md)    |
+| `commit-protocol-agent` | Aplica el protocolo obligatorio previo a cada commit (secretos, integridad, calidad, pruebas, reglas del proyecto) para preservar la funcionalidad del proyecto.            | [README](./commit-protocol-agent/README.es.md) |
