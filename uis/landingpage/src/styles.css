@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @source "../index.html";
 @source "../registro.html";
+@source "../application.html";
+@source "../validation.js";
 @source "../assets/*.js";
 
 @theme {

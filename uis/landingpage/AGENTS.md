@@ -17,6 +17,8 @@ Antes de diseñar o modificar la experiencia, lee:
   colores, tipografía, fotografía y posicionamiento.
 - [Anexo del logotipo](./Brandbook/Brandbook_Brasaland_Anexo_Logo.pdf):
   versiones, fondos permitidos y normas de composición.
+- [Recursos fotográficos](./photos.md): fotografías requeridas y su asignación
+  explícita a las tarjetas de «Lo que nos hace únicos».
 
 La carpeta se llama `Brandbook`, con mayúscula inicial. Revisa también los
 recursos disponibles en [Logos](./Logos/) antes de recrear elementos de marca.
@@ -43,6 +45,19 @@ cumplir ambos, solicita una decisión antes de cambiar contenido o comportamient
   tipografía serif, espaciado y jerarquía del anexo.
 - Utiliza imágenes de parrilla, producto y experiencias familiares coherentes
   con la dirección de arte. No inventes imágenes de locales o productos reales.
+- Utiliza obligatoriamente las fotografías de [photos.md](./photos.md) en sus
+  destinos aprobados por el usuario: Caydesa para «01. Calidad Consistente», Sip Bite Go para
+  «02. Experiencia Cálida» y la referencia de Facebook para «03. Rapidez».
+  No intercambies las asignaciones ni sustituyas recursos sin aprobación.
+  Antes de incorporarlos, verifica permisos o licencia, disponibilidad y
+  contenido visual. Para Facebook, solicita un archivo autorizado o una URL
+  directa estable: no uses la página como `src` ni eludas restricciones de acceso.
+  Si falta algún requisito, informa del bloqueo y deja su integración pendiente.
+  Optimiza las imágenes autorizadas, define dimensiones y textos alternativos
+  adecuados y usa carga diferida en estas tarjetas. No las presentes como
+  fotografías propias de Brasaland sin confirmación. Las etiquetas solicitadas
+  por el usuario y las limitaciones de su verificación constan en `photos.md`;
+  los textos alternativos deben describir el contenido visible.
 - No conviertas la cocción lenta en una promesa de preparación instantánea:
   distingue rapidez del servicio y tiempo de cocción. No reescribas los textos
   obligatorios del briefing para resolver esta tensión sin aprobación.

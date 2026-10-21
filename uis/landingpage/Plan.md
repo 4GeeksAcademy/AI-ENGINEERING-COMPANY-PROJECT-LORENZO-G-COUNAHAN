@@ -16,6 +16,8 @@ Fuentes utilizadas:
   documentación propia para cada aplicación.
 - [README de interfaces](../README.md): ubicación y separación de proyectos frontend.
 - [Instrucciones de la landing page](./AGENTS.md): diseño, funcionalidad y calidad.
+- [Recursos fotográficos](./photos.md): fuentes y asignación obligatoria de
+  fotografías a las tarjetas de «Lo que nos hace únicos».
 - [Briefing](./briefing.md): referencia de contenido, datos y comportamiento.
 - [Brandbook](./Brandbook/Brandbook_Brasaland.pdf) y
   [anexo de logotipo](./Brandbook/Brandbook_Brasaland_Anexo_Logo.pdf):
@@ -78,6 +80,18 @@ brandbook y su anexo, aprovechando los recursos de [Logos](./Logos/).
 El resultado esperado es una composición consistente para móvil, tablet y
 ordenador, con jerarquía clara, contraste suficiente y foco visible.
 
+Las tarjetas de «Lo que nos hace únicos» utilizarán las fuentes de
+[photos.md](./photos.md) respetando esta asignación: «01. Calidad Consistente»
+→ Caydesa; «02. Experiencia Cálida» → Sip Bite Go; «03. Rapidez» → Facebook.
+Esta asignación sustituye a la inicial por aprobación expresa del usuario.
+No se intercambiarán ni sustituirán sin aprobación. Su incorporación requiere
+confirmar permisos o licencia, disponibilidad y contenido visual. La referencia
+de Facebook necesita un archivo autorizado o una URL directa estable; no es
+un archivo de imagen utilizable como `src`. Los bloqueos se comunicarán y la
+integración afectada quedará pendiente, sin eludir restricciones de acceso.
+Los recursos autorizados se optimizarán con dimensiones explícitas, alternativas
+de texto y carga diferida, sin presentarlos como fotografías propias de Brasaland.
+
 ### Fase 3 — Construcción de la landing page
 
 La composición incluirá encabezado, hero, Nuestra Historia, beneficios,
@@ -132,7 +146,7 @@ la implementación; no se consideran funcionales por figurar en este plan.
 
 | Área | Condición de aceptación |
 | --- | --- |
-| Contenido y marca | Secciones, textos y datos del briefing presentes; identidad conforme al brandbook y al anexo. |
+| Contenido y marca | Secciones, textos y datos del briefing presentes; identidad conforme al brandbook y al anexo; fotografías de `photos.md` en las tres tarjetas asignadas, con permisos y acceso resueltos antes de integrarlas. |
 | Navegación | Enlaces y CTA con destinos funcionales; acceso claro al formulario y retorno a la landing. |
 | Responsive | Uso correcto en móvil, tablet y ordenador, incluidos anchos inferiores a 640 px, sin desbordamiento horizontal involuntario. |
 | Formulario | Campos y opciones completos, validación previa al envío, dependencias consistentes y mensajes requeridos. |
@@ -144,15 +158,15 @@ la implementación; no se consideran funcionales por figurar en este plan.
 | Rendimiento | Performance superior a 80 en móvil y escritorio, con objetivo de al menos 90, medido con Lighthouse o PageSpeed Insights. |
 | Evidencias | Mediciones con herramienta, fecha y condiciones; limitaciones o verificaciones pendientes declaradas explícitamente. |
 
-## 6. Decisiones y dependencias por resolver
+## 6. Decisiones y dependencias
 
-- El enlace «Menú» necesita un destino útil, aunque el briefing no proporciona
-  una carta completa. Su contenido o recurso deberá confirmarse sin inventar
-  platos, precios o una funcionalidad de pedidos.
-- El requisito de aceptar términos necesita contenido o un recurso aprobado.
-  No se presentará un texto legal inventado como documento oficial.
-- La expresión «mayor de 18 años» debe aclararse antes de cerrar la validación:
-  no debe asumirse sin confirmación si admite a quien acaba de cumplir 18.
+- Decisión del usuario: «Menú» presenta la propuesta gastronómica del brandbook
+  sin inventar platos, precios ni una funcionalidad de pedidos.
+- Decisión del usuario: el formulario es una demostración identificada.
+  Los términos oficiales siguen pendientes y son necesarios para habilitar
+  una inscripción definitiva; no se inventará un documento legal.
+- Decisión del usuario: se admite la inscripción desde el día que se cumplen
+  18 años, calculando la edad con la fecha completa.
 - El contraste y la legibilidad prevalecerán sobre combinaciones de color
   inadecuadas, manteniendo la identidad de marca.
 - La rapidez del servicio y la cocción lenta deben comunicarse sin contradicción.
@@ -162,3 +176,8 @@ la implementación; no se consideran funcionales por figurar en este plan.
 
 Las fases expresan una secuencia conceptual, no tareas asignadas ni estimaciones.
 El futuro documento de tareas podrá concretarlas sin alterar este alcance.
+
+El formulario se implementa en [application.html](./application.html) y su lógica
+en [validation.js](./validation.js). Por petición del usuario, el orden es nombre,
+fecha de nacimiento (habilita la continuación), email, país, ciudad, teléfono,
+procedencia, términos, ofertas, ubicación favorita y preferencias alimentarias.
