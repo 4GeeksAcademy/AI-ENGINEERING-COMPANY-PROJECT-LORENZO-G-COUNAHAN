@@ -1,0 +1,17 @@
+{
+  "name": "brasaland-landingpage",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -i ./src/styles.css -o ./assets/styles.css --minify",
+    "start": "http-server . -p 3000 -a 0.0.0.0 -c-1"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0",
+    "http-server": "^14.1.1",
+    "@playwright/test": "^1.56.0",
+    "lighthouse": "^12.8.0",
+    "@axe-core/playwright": "^4.10.0"
+  }
+}

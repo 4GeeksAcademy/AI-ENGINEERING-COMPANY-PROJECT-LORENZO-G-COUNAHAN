@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@source "../index.html";
+@source "../registro.html";
+@source "../application.html";
+@source "../validation.js";
+@source "../assets/*.js";
+
+@theme {
+  --color-coal: #12100e;
+  --color-wood: #261e1a;
+  --color-gold: #d9a05b;
+  --color-fire: #a63f24;
+  --color-bone: #e6e1da;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-sans: "Trebuchet MS", Arial, sans-serif;
+}
+
+@layer base {
+  html { scroll-padding-top: 6rem; }
+  body { @apply bg-coal font-sans text-bone antialiased; }
+  :focus-visible { outline: 3px solid #d9a05b; outline-offset: 5px; }
+  input, select { color-scheme: dark; }
+}
