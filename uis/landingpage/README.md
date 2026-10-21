@@ -33,6 +33,9 @@ repositorio, pero debe regenerarse después de modificar HTML o estilos.
 - [src/styles.css](./src/styles.css): entrada Tailwind, paleta y fuentes locales.
 - [tasks.md](./tasks.md): seguimiento; solo se marcan comprobaciones realizadas.
 - [Plan.md](./Plan.md): alcance y fases del proyecto.
+- [AGENTS.md](./AGENTS.md): instrucciones de diseño y desarrollo.
+- [photos.md](./photos.md): fuentes, etiquetas y condiciones de las fotografías.
+- [Memoria del proyecto](../../memory-bank/PROJECT_MEMORY.md): estado consolidado.
 
 El menú de navegación permanece visible también en móvil y funciona sin
 JavaScript. Los restaurantes se muestran mediante controles nativos `details`.
@@ -42,7 +45,7 @@ desplazamiento hacia secciones; el diseño utiliza utilidades Tailwind.
 ## Estado y límites
 
 El usuario aprobó una sección de propuesta gastronómica sin platos ni precios
-inventados, una futura demostración del registro y edad mínima de 18 cumplidos.
+inventados, el registro de demostración y edad mínima de 18 cumplidos.
 No hay backend, pedidos, reservas, almacenamiento ni envío de emails.
 El formulario valida los datos sin transmitirlos ni guardarlos. El orden es
 nombre, fecha de nacimiento, email, país, ciudad, teléfono, procedencia,
@@ -95,3 +98,17 @@ cinco anchos comprobados y pasó la auditoría automatizada axe.
 Para instalar el navegador en este entorno, se utilizó
 `PLAYWRIGHT_HOST_PLATFORM_OVERRIDE=ubuntu22.04-x64 npx playwright install chromium`.
 El identificador completo resolvió el fallo de instalación anterior.
+
+## Resumen de la entrega — 2026-10-21
+
+Landing, registro validado y fotografías de las tres tarjetas de beneficios
+están incorporados y documentados. La asignación final aprobada es Caydesa para
+Calidad Consistente, Sip Bite Go para Experiencia Cálida y la imagen facilitada
+de Facebook para Rapidez. Los pies visibles son los indicados por el usuario;
+los textos alternativos describen el contenido observado.
+
+Toda la aplicación utiliza un único puerto **3000**. El puerto 3011 citado en
+las mediciones es histórico y no es necesario para visualizar el formulario.
+Las fotos se sirven desde archivos locales, sin depender del enlace firmado
+de Facebook. La atribución específica de los permisos originales sigue por
+aclarar. No se entregan backend, inscripción legal definitiva, pedidos ni reservas.
