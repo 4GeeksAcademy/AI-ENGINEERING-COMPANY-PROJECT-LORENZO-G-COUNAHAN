@@ -19,14 +19,14 @@ _Out of scope:_ designing the module or its interfaces (see `codebase-design`), 
 
 On every cycle the skill consumes the following. **Required** inputs must exist before writing a test; if one is missing, ask instead of assuming.
 
-| Input | Required | What it is | If missing |
-| --- | --- | --- | --- |
-| Feature / bug request | ✅ | The capability or behavior to build or fix, in the user's words | Ask the user to state the behavior; do not invent a goal |
-| Codebase & public interfaces | ✅ | Existing code and the public API/seams the change touches | Ask for the location; read it before writing tests |
-| Agreed seams | ✅ | Public boundaries to test, confirmed with the user before any test | Propose seams and confirm; never write at an unconfirmed seam |
-| Test framework & runtime | ✅ | The testing tool/language the project actually uses (e.g. pytest, vitest/jest) | Ask or infer from config; do not assume |
-| Glossary / vocabulary | 🟡 | `GLOSSARY.md` if present, to name tests consistently | Skip if absent |
-| ADRs in the area | 🟡 | Architecture decisions affecting the changed region | Respect if present |
+| Input                        | Required | What it is                                                                     | If missing                                                    |
+| ---------------------------- | -------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------- |
+| Feature / bug request        | ✅       | The capability or behavior to build or fix, in the user's words                | Ask the user to state the behavior; do not invent a goal      |
+| Codebase & public interfaces | ✅       | Existing code and the public API/seams the change touches                      | Ask for the location; read it before writing tests            |
+| Agreed seams                 | ✅       | Public boundaries to test, confirmed with the user before any test             | Propose seams and confirm; never write at an unconfirmed seam |
+| Test framework & runtime     | ✅       | The testing tool/language the project actually uses (e.g. pytest, vitest/jest) | Ask or infer from config; do not assume                       |
+| Glossary / vocabulary        | 🟡       | `GLOSSARY.md` if present, to name tests consistently                           | Skip if absent                                                |
+| ADRs in the area             | 🟡       | Architecture decisions affecting the changed region                            | Respect if present                                            |
 
 ## What a good test is
 
