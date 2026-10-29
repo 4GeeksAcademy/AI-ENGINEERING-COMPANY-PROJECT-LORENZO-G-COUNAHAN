@@ -23,7 +23,7 @@ Scenario: the same PR as `good-review.md` (order validation endpoint + tests + S
 2. **Verdict contradicts the body.** The verdict says "ship it" but the author is left with a wall of nits; no severity mapping, no clear action.
 3. **Style nits drown the signal.** Every comment is about formatting/preference that tooling (ruff, eslint, prettier) already enforces — none of it changes behavior. There is a genuinely important should-fix (the implementation-coupled test) that is not mentioned at all.
 4. **Not actionable.** "why is this a function and not a class??" is a question with no context, no impact, and no suggestion.
-5. **No praise.** Nothing tells the author what the codebase considers *good* (centralized API, no microservices, SDD spec present, idempotency tested).
+5. **No praise.** Nothing tells the author what the codebase considers _good_ (centralized API, no microservices, SDD spec present, idempotency tested).
 
 ## Takeaway
 

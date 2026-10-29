@@ -13,7 +13,7 @@ The change must not merge while this is open.
 - **Missing SDD spec** for a workflow change, or **missing acceptance criteria** that make the behavior unverifiable.
 - **Multi-currency violation** (mixed COP/USD with no approved conversion policy).
 
-*Why it matters:* merging destroys trust in the branch or data correctness.
+_Why it matters:_ merging destroys trust in the branch or data correctness.
 
 ## 🟡 Should-fix (recommended)
 
@@ -25,7 +25,7 @@ Open findings don't block the verdict alone but should be addressed before or ri
 - Overlooked error path that degrades gracefully but is noisy.
 - Dead code or an unused import/export.
 
-*Why it matters:* reduces future maintenance cost and review fatigue.
+_Why it matters:_ reduces future maintenance cost and review fatigue.
 
 ## 🟢 Optional / nit
 
@@ -35,7 +35,7 @@ Preferences, naming opinions, style alternatives that don't change behavior. The
 - Suggesting a clearer name when the current one is technically accurate.
 - Micro-refactors that make the code a bit nicer.
 
-*Why it matters:* keeps reviews focused; too many nits drown the signal.
+_Why it matters:_ keeps reviews focused; too many nits drown the signal.
 
 ## 💡 Praise
 
@@ -46,13 +46,13 @@ Positive feedback, stated as specifically as findings.
 - Good use of the centralized API versus a new microservice.
 - Clear commit message / docs.
 
-*Why it matters:* tells the author what "good" means in this codebase and reinforces it.
+_Why it matters:_ tells the author what "good" means in this codebase and reinforces it.
 
 ## Verdict mapping
 
-| Open findings          | Verdict            |
-| ---------------------- | ------------------ |
-| None (or only praise)  | **APPROVE**       |
-| Only 🟢 / optional     | **COMMENT**        |
-| Any 🔴 must-fix        | **REQUEST CHANGES** |
+| Open findings                    | Verdict                                                 |
+| -------------------------------- | ------------------------------------------------------- |
+| None (or only praise)            | **APPROVE**                                             |
+| Only 🟢 / optional               | **COMMENT**                                             |
+| Any 🔴 must-fix                  | **REQUEST CHANGES**                                     |
 | 🟡 should-fix stack, no blocking | **COMMENT** with explicit "should address before merge" |
