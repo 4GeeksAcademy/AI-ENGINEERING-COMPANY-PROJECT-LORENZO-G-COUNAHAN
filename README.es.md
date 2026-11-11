@@ -49,13 +49,42 @@ Estás construyendo **una sola empresa** a lo largo de muchos hitos y proyectos.
 
 ---
 
-## Estado actual de la plantilla
+## Estado actual del proyecto — 2026-10-21
 
-> 💡 Actualmente el repositorio ofrece solo una **estructura base de carpetas y documentación**. Todavía no incluye aplicaciones ejecutables ni scripts globales en la raíz.
->
-> - `CONTEXT.md` es un placeholder y debe sustituirse por el contexto de la empresa asignada.
-> - No existe todavía un `AGENTS.md` en la raíz.
-> - Existe metadata del paquete compartido en `packages/shared/package.json` (`@repo/shared-types`), pero aún no hay runner de workspace en raíz.
+El repositorio ya incluye una **landing pública de Brasaland y un formulario
+demostrativo Brasa Points** en [uis/landingpage](./uis/landingpage/README.md).
+La estructura restante sirve de base para los siguientes hitos; no hay
+un runner global del workspace.
+
+- Landing responsive en español, colores del brandbook, logos oficiales,
+  fotografías WebP locales, ubicaciones, contacto y Schema.org `Restaurant`.
+- Formulario con acceso desde 18 años cumplidos, validación, dependencias
+  país/ciudad/restaurante, prefijos telefónicos automáticos y errores accesibles.
+- Solo demostración: sin backend, envío de datos, persistencia ni emails.
+  Pendientes los términos oficiales y la revisión manual con lector de pantalla.
+- Lighthouse 12.8.2 local, 2026-10-21: Performance de la landing **98 móvil /
+  100 escritorio**; formulario **100 en Performance y accesibilidad** en ambos.
+  El formulario utiliza `noindex` deliberado. No son garantías en producción.
+- Seguimiento en [memoria](./memory-bank/PROJECT_MEMORY.md),
+  [plan](./uis/landingpage/Plan.md), [tareas](./uis/landingpage/tasks.md)
+  y [fuentes fotográficas](./uis/landingpage/photos.md).
+
+### Ejecutar la web
+
+Requisitos: Node.js 22 y npm.
+
+```sh
+cd uis/landingpage
+npm ci
+npm run build
+npm start
+```
+
+Abrir `http://localhost:3000/` o `http://localhost:3000/application.html`.
+En Codespaces, abrir el puerto reenviado **3000**. Un solo servidor sirve
+todas las páginas y recursos; el puerto temporal de auditoría 3011 no es
+necesario. Para detener el servidor, utilizar Ctrl+C.
+Las instrucciones específicas están en [AGENTS.md](./uis/landingpage/AGENTS.md).
 
 ---
 

@@ -1,7 +1,14 @@
 # 📋 Memoria del Proyecto — Brasaland AI Engineering
 
 > **Documento de memoria del proyecto.** Registra visión general, stack tecnológico, estado actual e hitos.
-> _Última actualización: 2026-10-15_
+> _Copia histórica del 2026-10-15. Referencia actualizada el 2026-10-21._
+>
+> La memoria vigente se mantiene en
+> [memory-bank/PROJECT_MEMORY.md](../memory-bank/PROJECT_MEMORY.md).
+> Allí se registran la landing, el formulario Brasa Points, las fotografías,
+> el servidor único en puerto 3000 y las comprobaciones del 2026-10-21.
+> El contenido inferior se conserva como registro histórico y no describe
+> el estado actual del sitio público.
 
 ---
 

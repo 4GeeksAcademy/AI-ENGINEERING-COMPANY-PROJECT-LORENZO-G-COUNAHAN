@@ -1,7 +1,57 @@
 # 📋 Memoria del Proyecto — Brasaland AI Engineering
 
 > **Documento de memoria del proyecto.** Registra visión general, stack tecnológico, estado actual e hitos.
-> _Última actualización: 2026-10-15_
+> _Última actualización: 2026-10-21_
+
+## Actualización del 2026-10-21 — Sitio público y Brasa Points
+
+El hito web ya dispone de una aplicación estática ejecutable en
+[uis/landingpage](../uis/landingpage/README.md), independiente del backend
+y de los futuros dashboards de Operaciones y Supply Chain.
+
+- **Landing:** presentación de marca, historia, beneficios, 14 restaurantes
+  en Colombia y Florida, Brasa Points, contacto, propuesta gastronómica,
+  enlaces sociales y JSON-LD `Restaurant` en español.
+- **Identidad:** paleta del brandbook, logotipos oficiales en WebP y tres
+  fotografías locales optimizadas. [photos.md](../uis/landingpage/photos.md)
+  registra fuentes, autorización declarada por el usuario y etiquetas.
+  La procedencia comercial de las etiquetas no se verificó independientemente.
+- **Formulario:** [application.html](../uis/landingpage/application.html) y
+  [validation.js](../uis/landingpage/validation.js). Nombre y fecha de nacimiento
+  habilitan la continuación desde los 18 años cumplidos; email, país, ciudad,
+  teléfono con prefijo automático, procedencia y términos se validan antes del
+  envío. Ofertas, restaurante favorito y preferencias son opcionales.
+  País y ciudad limpian selecciones dependientes; el registro anterior conserva
+  un enlace de acceso compatible.
+- **Simulación:** no hay backend, persistencia, envío de emails ni inscripción
+  real. Los términos oficiales siguen pendientes; la casilla es demostrativa.
+  Sin JavaScript, los controles permanecen bloqueados con una explicación.
+- **Stack real:** HTML, JavaScript, Tailwind CSS 4 compilado, Node.js 22/npm,
+  `http-server`; Playwright/Chromium, axe y Lighthouse para comprobaciones.
+- **Ejecución:** desde `uis/landingpage`, `npm ci`, `npm run build` y `npm start`.
+  Un único puerto, **3000**, sirve landing, formulario y recursos. El 3011 solo
+  se utilizó temporalmente para auditar el formulario y está detenido.
+- **Documentación:** [AGENTS.md](../uis/landingpage/AGENTS.md),
+  [Plan.md](../uis/landingpage/Plan.md), [tasks.md](../uis/landingpage/tasks.md)
+  y [README](../uis/landingpage/README.md), con pendientes explícitos.
+
+Verificación local del 2026-10-21: compilación, enlaces y recursos HTTP,
+validaciones, umbral de edad, dependencias, consentimiento y controles
+opcionales comprobados en Chromium. Sin desbordamientos en nueve anchos del
+formulario; axe sin infracciones automáticas en el formulario y la sección
+fotográfica. Lighthouse 12.8.2:
+
+| Página | Performance móvil / escritorio | Accesibilidad móvil / escritorio |
+| --- | --- | --- |
+| Landing con fotografías | 98 / 100 | No se midió la página completa |
+| Formulario de demostración | 100 / 100 | 100 / 100 |
+
+El formulario mantiene `noindex` deliberado (SEO 60/63). Son mediciones locales,
+no certificación WCAG ni garantías en producción. Pendientes: lector de pantalla,
+auditoría integral de la landing, condiciones de atribución de las fotos y
+términos oficiales antes de un registro definitivo. Los componentes de backend,
+agentes y operaciones descritos más abajo conservan su estado histórico:
+no se han implementado como parte de este hito.
 
 ---
 
@@ -40,7 +90,7 @@ Los usuarios son los distintos departamentos de **Brasaland**, cadena de restaur
 
 ## 2. Stack Tecnológico
 
-### Stack actual (definido por la plantilla)
+### Stack base de la plantilla
 
 | Componente               | Tecnología                                             | Estado                                           |
 | ------------------------ | ------------------------------------------------------ | ------------------------------------------------ |
@@ -92,7 +142,7 @@ Los usuarios son los distintos departamentos de **Brasaland**, cadena de restaur
 | **Backend API (FastAPI)**            | ❌ No iniciado | `services/api/` no existe                                                                                                                                                                  |
 | **Datos de ejemplo**                 | ❌ No iniciado | `data/raw/`, `data/process/` están vacíos                                                                                                                                                  |
 | **Pipelines ETL**                    | ❌ No iniciado | `data/pipelines/` sin scripts                                                                                                                                                              |
-| **Dashboards (uis/)**                | ❌ No iniciado | `uis/website/` y `uis/backoffice/` no existen                                                                                                                                              |
+| **Dashboards internos**             | ❌ No iniciado | Backoffice pendiente; el sitio público sí está implementado en `uis/landingpage/` |
 | **MCP Servers**                      | ❌ No iniciado | `mcps/` vacío                                                                                                                                                                              |
 | **Workflows n8n**                    | ❌ No iniciado | `workflows/` vacío                                                                                                                                                                         |
 | **Infraestructura (docker-compose)** | ❌ No iniciado | No hay `docker-compose.yml` en raíz                                                                                                                                                        |

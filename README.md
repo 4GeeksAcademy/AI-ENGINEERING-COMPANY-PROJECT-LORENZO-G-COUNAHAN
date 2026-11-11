@@ -49,13 +49,43 @@ You are building **one company** across many milestones and projects. Each top-l
 
 ---
 
-## Current status of the template
+## Current project status — 2026-10-21
 
-> 💡 This repository currently provides a **base folder structure and documentation skeleton** only. It does not include runnable apps or global scripts yet.
->
-> - `CONTEXT.md` is a placeholder and must be replaced with your assigned company context.
-> - There is no root `AGENTS.md` yet.
-> - Shared package metadata exists in `packages/shared/package.json` (`@repo/shared-types`), but no workspace runner is configured at root.
+The repository now includes a runnable **Brasaland public website and Brasa Points
+registration demo** in [uis/landingpage](./uis/landingpage/README.md).
+The rest of the template remains a foundation for subsequent milestones;
+no global workspace runner is configured.
+
+- Responsive Spanish landing with brandbook colors, official logos, local WebP
+  photographs, locations, contact information and `Restaurant` structured data.
+- Form with an 18+ age gate, validation, country/city/location dependencies,
+  automatic phone prefixes, accessible errors and optional preferences.
+- Demo only: no data transmission, persistence, backend or email. Official
+  program terms and manual screen-reader review remain pending.
+- Local Lighthouse 12.8.2 on 2026-10-21: landing Performance **98 mobile / 100
+  desktop**; form Performance and accessibility **100 in both profiles**.
+  The demo form deliberately uses `noindex`. Scores are not production guarantees.
+- [Project memory](./memory-bank/PROJECT_MEMORY.md),
+  [implementation plan](./uis/landingpage/Plan.md),
+  [task tracking](./uis/landingpage/tasks.md) and
+  [photograph sources](./uis/landingpage/photos.md) document today's delivery.
+
+### Run the website
+
+Requires Node.js 22 and npm:
+
+```sh
+cd uis/landingpage
+npm ci
+npm run build
+npm start
+```
+
+Open `http://localhost:3000/` for the landing and
+`http://localhost:3000/application.html` for the form. In Codespaces, open the
+forwarded **3000** port. A single server serves all pages and assets; the
+temporary audit port 3011 is not required. Stop the server with Ctrl+C.
+Project-specific instructions live in [AGENTS.md](./uis/landingpage/AGENTS.md).
 
 ---
 

@@ -1,7 +1,7 @@
 # Project Brief — Brasaland AI Engineering
 
 > **Visión general del proyecto:** descripción del negocio, objetivos, usuarios y problemas a resolver.
-> _Última actualización: 2026-10-15_
+> _Última actualización: 2026-10-21_
 
 ---
 
@@ -38,6 +38,26 @@ Brasaland es rentable pero opera con herramientas heredadas:
 Mariana ha creado el equipo **Brasaland Digital** para construir la plataforma digital de la empresa desde cero.
 
 ## 3. Objetivos del Proyecto
+
+### Hito web — Marketing y fidelización (2026-10-21)
+
+Camila Ospina necesita renovar la presencia pública de Brasaland y sustituir
+conceptualmente las tarjetas físicas por Brasa Points. La solución implementada
+en [uis/landingpage](../uis/landingpage/README.md) presenta marca, historia,
+beneficios, ubicaciones, programa, propuesta gastronómica y contacto, con
+identidad del brandbook y fotografías documentadas.
+
+Los usuarios de este hito son clientes y visitantes en Colombia y Florida.
+El registro demostrativo comienza con nombre y fecha de nacimiento y permite
+continuar desde los 18 años cumplidos. Recoge los campos del
+[briefing web](../uis/landingpage/briefing.md), valida sus dependencias y mantiene
+las preferencias opcionales, sin guardar ni transmitir datos personales.
+Los términos oficiales y la inscripción definitiva quedan fuera de la entrega
+actual. No se implementaron reservas, pedidos ni emails reales.
+
+El sitio se entrega en español; inglés continúa como mejora opcional.
+Este hito no sustituye ni da por implementados los objetivos de Operaciones,
+Supply Chain, backend y agentes descritos en las siguientes secciones.
 
 ### Objetivo general
 Construir las herramientas, sistemas y automatizaciones que permitan a Brasaland operar como una empresa moderna, cubriendo los hitos del programa (Web, Programación, Backend, Telemetría, RAG, Agentes, Workflows, Tiempo Real).

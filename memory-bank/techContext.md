@@ -1,13 +1,37 @@
 # Tech Context — Brasaland AI Engineering
 
 > **Contexto tecnológico:** stack, arquitectura, decisiones técnicas y restricciones.
-> _Última actualización: 2026-10-15_
+> _Última actualización: 2026-10-21_
 
 ---
 
 ## 1. Stack Tecnológico
 
-### Stack actual (heredado de la plantilla)
+### Frontend público implementado — 2026-10-21
+
+La aplicación [uis/landingpage](../uis/landingpage/README.md) utiliza HTML
+semántico, JavaScript y Tailwind CSS 4 compilado y minificado, sin framework,
+fuentes remotas ni CDN de estilos. Node.js 22/npm gestionan las dependencias
+locales de la aplicación; no se presupone un runner global del monorepo.
+
+- `index.html`: landing y JSON-LD `Restaurant`, idioma base español.
+- `application.html` y `validation.js`: registro simulado, control de edad,
+  prefijos automáticos, dependencias país/ciudad/restaurante y validación.
+- `registro.html`: acceso compatible al nuevo formulario.
+- `src/styles.css` → `assets/styles.css`: paleta y utilidades Tailwind.
+- `assets/`: logos y fotografías WebP locales; trazabilidad en
+  [photos.md](../uis/landingpage/photos.md).
+- Desarrollo: `npm ci`, `npm run build`, `npm start` desde `uis/landingpage`.
+  `http-server` sirve todas las páginas en `0.0.0.0:3000`; en Codespaces se abre
+  el puerto reenviado. El 3011 fue exclusivo de una auditoría ya finalizada.
+- Navegación HTML sin JavaScript; formulario bloqueado con explicación si
+  JavaScript no está disponible. Sin API, almacenamiento, cookies de registro
+  ni emails. El prefijo es visible y el número nacional requiere diez dígitos.
+- Validación local: Playwright/Chromium, axe y Lighthouse 12.8.2. Para instalar
+  Chromium en este entorno se usó
+  `PLAYWRIGHT_HOST_PLATFORM_OVERRIDE=ubuntu22.04-x64 npx playwright install chromium`.
+
+### Stack base (heredado de la plantilla)
 
 | Componente | Tecnología | Ubicación | Estado |
 |---|---|---|---|
@@ -60,6 +84,16 @@
 - **Decisión:** Carpeta `memory-bank/` en la raíz con tres archivos: `projectbrief.md`, `techContext.md`, `progress.md`.
 - **Consecuencia:** Documentación centralizada, fácil de consultar y actualizar, independiente de `docs/`.
 
+### ADR-006: Hito web estático y registro de demostración (2026-10-21)
+- **Decisión:** HTML, JavaScript y Tailwind compilado en `uis/landingpage/`,
+  servido desde un único puerto 3000, sin dependencia del backend planeado.
+- **Privacidad y alcance:** solo validación en navegador; edad mínima de
+  18 años cumplidos, términos demostrativos y ningún envío o persistencia.
+- **Recursos:** fotografías locales optimizadas con permiso declarado por
+  el usuario; no depender de URLs firmadas de Facebook en el HTML.
+- **Calidad:** mediciones locales registradas en el README; formulario `noindex`
+  deliberado hasta que exista una inscripción real con términos oficiales.
+
 ---
 
 ## 3. Estructura del Monorepo
@@ -109,7 +143,8 @@
 
 ### Convenios técnicos
 - **Lenguaje principal:** Python (backend, agentes, pipelines, MCP)
-- **Frontend:** TypeScript/React (o Streamlit para prototipado)
+- **Frontend público actual:** HTML/JavaScript y Tailwind; React/TypeScript o
+  Streamlit permanecen como opciones para futuros dashboards.
 - **Documentación:** Markdown, siempre enlazada desde los README de cada carpeta
 - **Control de versiones:** Git flow simplificado (main + ramas por hito)
 

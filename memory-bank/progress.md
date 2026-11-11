@@ -1,7 +1,7 @@
 # Progress — Brasaland AI Engineering
 
 > **Estado actual del desarrollo:** lo que funciona, lo que está pendiente y próximos pasos.
-> _Última actualización: 2026-10-15_
+> _Última actualización: 2026-10-21_
 
 ---
 
@@ -10,11 +10,43 @@
 ```
 Proyecto: Brasaland AI Engineering
 Inicio:   2026-10-15
-Fase:     Inicial (Definición y estructura)
-Estado:   ⚡ 11 elementos completos · 15 pendientes
+Fase:     Hito web implementado como demostración; plataforma IA en definición
+Estado:   Landing y formulario ejecutables; seguimiento detallado en tasks.md
 ```
 
 ---
+
+## Entrega del 2026-10-21 — Landing page
+
+- [x] Landing responsive en español con contenido corporativo, ubicaciones,
+  Brasa Points, contacto, propuesta gastronómica y Schema.org.
+- [x] Identidad del brandbook y logos oficiales; fotografías autorizadas por
+  declaración del usuario, optimizadas en WebP y documentadas.
+- [x] Formulario con nombre y fecha como control de acceso desde 18 años;
+  email, país, ciudad, teléfono, procedencia y términos; opciones comerciales,
+  restaurante y preferencias opcionales.
+- [x] Prefijos `+57`/`+1`, ciudades y restaurantes dependientes, limpieza de
+  selecciones incompatibles y errores asociados con foco y anuncios.
+- [x] Envío exclusivamente simulado, sin almacenar ni transmitir datos.
+- [x] Compilación Tailwind, comprobación funcional en Chromium, nueve anchos
+  del formulario y auditoría automatizada axe sin infracciones detectadas.
+- [x] Lighthouse local 12.8.2: landing Performance 98 móvil/100 escritorio;
+  formulario Performance y accesibilidad 100 en ambos perfiles.
+- [x] Un servidor en puerto 3000 para ambas páginas y todos sus recursos.
+- [ ] Completar revisión manual con lector de pantalla y auditoría integral
+  de accesibilidad y SEO de la landing.
+- [ ] Disponer de términos oficiales antes de habilitar inscripción real.
+- [ ] Aclarar condiciones específicas de atribución de las fotografías.
+
+La demostración del formulario mantiene `noindex` (SEO 60 móvil/63 escritorio).
+Las mediciones locales no equivalen a certificación de accesibilidad ni a
+resultados garantizados en producción. No se añadió backend ni email real.
+
+Fuentes de seguimiento: [tareas](../uis/landingpage/tasks.md),
+[plan](../uis/landingpage/Plan.md), [fotografías](../uis/landingpage/photos.md)
+y [ejecución y resultados](../uis/landingpage/README.md).
+El roadmap de IA inferior se conserva como planificación independiente,
+no como funcionalidades entregadas hoy.
 
 ## 2. Lo que funciona (✅)
 
