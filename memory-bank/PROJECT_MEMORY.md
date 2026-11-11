@@ -1,7 +1,31 @@
 # 📋 Memoria del Proyecto — Brasaland AI Engineering
 
 > **Documento de memoria del proyecto.** Registra visión general, stack tecnológico, estado actual e hitos.
-> _Última actualización: 2026-10-21_
+> _Última actualización: 2026-11-11_
+
+## Actualización del 2026-11-11 — Utilidades TypeScript de operaciones
+
+Se implementó el paquete local [`packages/typeScriptUtilities`](../packages/typeScriptUtilities/README.md)
+para las operaciones y analítica de Brasaland. Incluye modelos de dominio,
+validaciones de negocio, filtros y ordenamientos (incluidos filtros combinables),
+búsqueda lineal/binaria, cálculos financieros, reportes, agregaciones y scoring/ranking.
+Los fixtures están en `packages/typeScriptUtilities/tests/`; los requisitos
+vigentes y las decisiones ampliadas están en `specs.md` y `README.md` del paquete.
+
+Decisiones registradas: fechas locales calendario inclusivas en
+`America/Bogota`; las ventas incluyen `numberOfDiners` obligatorio; el scoring
+recibe `asOfDate` y las validaciones de locación reciben `currentYear` para evitar
+dependencia implícita del reloj. En comparación por país, se toma COP como moneda
+de origen para Colombia y USD para USA, convirtiendo después a la moneda objetivo.
+El reporte adicional `summarizeRevenue` incluye total, promedio, máximo y mínimo.
+
+Para validar, desde `packages/typeScriptUtilities`: `npm install` y
+`npm run check` (que ejecuta typecheck y pruebas); también existen
+`npm run typecheck` y `npm test`. **A fecha de esta actualización no se han
+ejecutado**: el entorno de trabajo no dispone de Node.js/npm. Además, los
+diagnósticos del editor muestran una importación `../utils/search` no resuelta
+en `tests/searchCases.ts`, aunque `utils/search.ts` existe. El estado es
+implementado con revisión estática; la verificación automatizada sigue pendiente.
 
 ## Actualización del 2026-10-21 — Sitio público y Brasa Points
 

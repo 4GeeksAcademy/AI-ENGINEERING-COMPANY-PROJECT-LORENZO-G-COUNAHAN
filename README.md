@@ -49,7 +49,7 @@ You are building **one company** across many milestones and projects. Each top-l
 
 ---
 
-## Current project status — 2026-10-21
+## Current project status — 2026-11-11
 
 The repository now includes a runnable **Brasaland public website and Brasa Points
 registration demo** in [uis/landingpage](./uis/landingpage/README.md).
@@ -86,6 +86,27 @@ Open `http://localhost:3000/` for the landing and
 forwarded **3000** port. A single server serves all pages and assets; the
 temporary audit port 3011 is not required. Stop the server with Ctrl+C.
 Project-specific instructions live in [AGENTS.md](./uis/landingpage/AGENTS.md).
+
+### TypeScript Utilities — Programming milestone
+
+The Brasaland operations utilities are in
+[`packages/typeScriptUtilities`](./packages/typeScriptUtilities/README.md).
+They include typed models, business validation, filtering/sorting, linear and
+binary search, financial calculations, reports, and location scoring/ranking.
+This package has its own scripts; there is no root-level workspace runner.
+
+Requires Node.js and npm. From the package directory:
+
+```sh
+cd packages/typeScriptUtilities
+npm install
+npm run check       # typecheck + fixtures
+```
+
+Use `npm run typecheck` for TypeScript validation only or `npm test` to execute
+the fixtures. These checks have not yet been run in the current environment;
+the package README and [task tracker](./packages/typeScriptUtilities/tasks.md)
+record the known diagnostic and verification status.
 
 ---
 
