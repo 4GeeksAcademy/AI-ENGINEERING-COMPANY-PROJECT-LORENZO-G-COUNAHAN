@@ -49,7 +49,7 @@ You are building **one company** across many milestones and projects. Each top-l
 
 ---
 
-## Current project status — 2026-11-11
+## Current project status — 2026-11-12
 
 The repository now includes a runnable **Brasaland public website and Brasa Points
 registration demo** in [uis/landingpage](./uis/landingpage/README.md).
@@ -101,12 +101,16 @@ Requires Node.js and npm. From the package directory:
 cd packages/typeScriptUtilities
 npm install
 npm run check       # typecheck + fixtures
+npm run demo        # ejemplos de las utilidades en consola
 ```
 
 Use `npm run typecheck` for TypeScript validation only or `npm test` to execute
-the fixtures. These checks have not yet been run in the current environment;
-the package README and [task tracker](./packages/typeScriptUtilities/tasks.md)
-record the known diagnostic and verification status.
+the fixtures. The typecheck and all 47 fixtures pass. To try the functions
+interactively in a browser, start `python3 -m http.server 8000` from the
+repository root and open
+`http://localhost:8000/packages/typeScriptUtilities/manual.html`. The page uses
+sample data and loads Tailwind CSS and the TypeScript compiler from CDNs.
+See the [package README](./packages/typeScriptUtilities/README.md) for details.
 
 ---
 

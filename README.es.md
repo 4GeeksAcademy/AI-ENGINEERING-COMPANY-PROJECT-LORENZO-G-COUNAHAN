@@ -103,9 +103,13 @@ npm run check       # typecheck + fixtures
 npm run demo        # ejemplos de las funcionalidades en consola
 ```
 
-`npm run typecheck` valida solo tipos y `npm test` ejecuta los fixtures. La demo
-está en `packages/typeScriptUtilities/demo.ts`; consulta el README del paquete
-para más detalles.
+`npm run typecheck` valida solo tipos y `npm test` ejecuta los fixtures. El
+typecheck y los 47 fixtures pasan. La demo de consola está en
+`packages/typeScriptUtilities/demo.ts`. Para probar las funciones en el
+navegador, inicia `python3 -m http.server 8000` desde la raíz y abre
+`http://localhost:8000/packages/typeScriptUtilities/manual.html`. La página usa
+datos de ejemplo y carga Tailwind CSS y el compilador TypeScript desde CDN;
+consulta el README del paquete para más detalles.
 
 ---
 

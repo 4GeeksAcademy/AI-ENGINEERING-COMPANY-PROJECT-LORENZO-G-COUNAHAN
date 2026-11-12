@@ -12,7 +12,28 @@ npm run demo       # muestra ejemplos de las utilidades en consola
 npm run check      # ejecuta typecheck y tests; recomendado antes de entregar
 ```
 
-La demo usa datos de ejemplo para mostrar validaciones, filtros, búsquedas, cálculos, reportes y ranking. También puedes ejecutar directamente `npx tsc --noEmit` para validar tipos o `npx tsx demo.ts` para iniciar la demo.
+La demo de consola usa datos de ejemplo para mostrar validaciones, filtros,
+búsquedas, cálculos, reportes y ranking. También puedes ejecutar directamente
+`npx tsc --noEmit` para validar tipos o `npx tsx demo.ts` para iniciar la demo.
+
+### Prueba manual en el navegador
+
+Desde la raíz del repositorio, inicia un servidor HTTP:
+
+```sh
+python3 -m http.server 8000
+```
+
+Abre <http://localhost:8000/packages/typeScriptUtilities/manual.html>. La página
+permite elegir locación y fecha, buscar ítems y ejecutar validaciones, métricas
+por locación, filtros, búsquedas y reportes globales. Invoca los módulos
+TypeScript de `utils/` con datos de ejemplo; no modifica ni transmite datos
+operativos. Necesita conexión a internet para cargar Tailwind CSS y el
+transpilador TypeScript desde CDN.
+
+Verificación registrada: `npm run check` completa correctamente el typecheck y
+los 47 fixtures; `npm run demo` y la página manual también se ejecutan con los
+datos de ejemplo incluidos.
 
 **Hito 2: Fundamentos de Programación**  
 **Empresa:** Brasaland — Cadena de Restaurantes de Comida a la Parrilla  
