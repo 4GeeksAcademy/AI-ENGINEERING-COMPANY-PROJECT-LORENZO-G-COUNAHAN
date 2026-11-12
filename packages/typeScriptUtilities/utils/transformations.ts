@@ -161,7 +161,13 @@ export const findTopSellingItems = (
 };
 
 export const groupWasteByReason = (wasteRecords: WasteRecord[]): WasteByReason => {
-  const grouped = Object.fromEntries(WASTE_REASONS.map((reason) => [reason, []])) as WasteByReason;
+  const grouped: WasteByReason = {
+    Expired: [],
+    "Cooking error": [],
+    "Customer return": [],
+    Damage: [],
+    Other: [],
+  };
   wasteRecords.forEach((record) => grouped[record.reason].push(record));
   return grouped;
 };

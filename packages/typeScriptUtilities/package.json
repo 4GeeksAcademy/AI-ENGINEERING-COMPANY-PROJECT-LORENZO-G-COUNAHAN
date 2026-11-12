@@ -6,6 +6,7 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "tsx tests/runCases.ts",
+    "demo": "tsx demo.ts",
     "check": "npm run typecheck && npm test"
   },
   "devDependencies": {

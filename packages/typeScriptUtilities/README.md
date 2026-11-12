@@ -8,10 +8,11 @@ Requiere Node.js y npm. Desde la carpeta `packages/typeScriptUtilities`, instala
 npm install
 npm run typecheck  # solo valida tipos (tsc --noEmit)
 npm test           # ejecuta los casos de tests/runCases.ts
+npm run demo       # muestra ejemplos de las utilidades en consola
 npm run check      # ejecuta typecheck y tests; recomendado antes de entregar
 ```
 
-También puedes ejecutar directamente `npx tsc --noEmit` para validar tipos. Para ejecutar el runner sin el script de npm: `npx tsx tests/runCases.ts`. `npx src/demo.ts` no es el comando correcto para este paquete: no hay un `src/demo.ts`; el código está en `utils/` y el runner de pruebas en `tests/`. El entorno en el que se preparó el paquete no tenía Node.js/npm, así que estos comandos quedaron configurados/documentados pero no se pudieron ejecutar aquí.
+La demo usa datos de ejemplo para mostrar validaciones, filtros, búsquedas, cálculos, reportes y ranking. También puedes ejecutar directamente `npx tsc --noEmit` para validar tipos o `npx tsx demo.ts` para iniciar la demo.
 
 **Hito 2: Fundamentos de Programación**  
 **Empresa:** Brasaland — Cadena de Restaurantes de Comida a la Parrilla  

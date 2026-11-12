@@ -100,12 +100,12 @@ Requiere Node.js y npm. Desde la carpeta del paquete:
 cd packages/typeScriptUtilities
 npm install
 npm run check       # typecheck + fixtures
+npm run demo        # ejemplos de las funcionalidades en consola
 ```
 
-`npm run typecheck` valida solo tipos y `npm test` ejecuta los fixtures. Estos
-comandos todavía no se han ejecutado en el entorno actual; el README del paquete
-y su [seguimiento de tareas](./packages/typeScriptUtilities/tasks.md) registran
-el diagnóstico conocido y el estado de verificación.
+`npm run typecheck` valida solo tipos y `npm test` ejecuta los fixtures. La demo
+está en `packages/typeScriptUtilities/demo.ts`; consulta el README del paquete
+para más detalles.
 
 ---
 
