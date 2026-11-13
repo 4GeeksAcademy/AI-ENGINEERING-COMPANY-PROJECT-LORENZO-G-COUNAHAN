@@ -49,7 +49,7 @@ Estás construyendo **una sola empresa** a lo largo de muchos hitos y proyectos.
 
 ---
 
-## Estado actual del proyecto — 2026-10-21
+## Estado actual del proyecto — 2026-11-11
 
 El repositorio ya incluye una **landing pública de Brasaland y un formulario
 demostrativo Brasa Points** en [uis/landingpage](./uis/landingpage/README.md).
@@ -85,6 +85,31 @@ En Codespaces, abrir el puerto reenviado **3000**. Un solo servidor sirve
 todas las páginas y recursos; el puerto temporal de auditoría 3011 no es
 necesario. Para detener el servidor, utilizar Ctrl+C.
 Las instrucciones específicas están en [AGENTS.md](./uis/landingpage/AGENTS.md).
+
+### Utilidades TypeScript — Hito de Programación
+
+Las utilidades de operaciones de Brasaland están en
+[`packages/typeScriptUtilities`](./packages/typeScriptUtilities/README.md).
+Incluyen modelos tipados, validaciones de negocio, filtros/ordenamientos,
+búsqueda lineal y binaria, cálculos financieros, reportes y scoring/ranking.
+El paquete tiene scripts propios; no hay un runner global en la raíz.
+
+Requiere Node.js y npm. Desde la carpeta del paquete:
+
+```sh
+cd packages/typeScriptUtilities
+npm install
+npm run check       # typecheck + fixtures
+npm run demo        # ejemplos de las funcionalidades en consola
+```
+
+`npm run typecheck` valida solo tipos y `npm test` ejecuta los fixtures. El
+typecheck y los 47 fixtures pasan. La demo de consola está en
+`packages/typeScriptUtilities/demo.ts`. Para probar las funciones en el
+navegador, inicia `python3 -m http.server 8000` desde la raíz y abre
+`http://localhost:8000/packages/typeScriptUtilities/manual.html`. La página usa
+datos de ejemplo y carga Tailwind CSS y el compilador TypeScript desde CDN;
+consulta el README del paquete para más detalles.
 
 ---
 

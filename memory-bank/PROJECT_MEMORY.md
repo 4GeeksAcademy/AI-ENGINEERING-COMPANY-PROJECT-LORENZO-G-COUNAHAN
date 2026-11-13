@@ -1,7 +1,39 @@
 # 📋 Memoria del Proyecto — Brasaland AI Engineering
 
 > **Documento de memoria del proyecto.** Registra visión general, stack tecnológico, estado actual e hitos.
-> _Última actualización: 2026-10-21_
+> _Última actualización: 2026-11-12_
+
+## Actualización del 2026-11-12 — Verificación y pruebas manuales de utilidades TypeScript
+
+Se implementó el paquete local [`packages/typeScriptUtilities`](../packages/typeScriptUtilities/README.md)
+para las operaciones y analítica de Brasaland. Incluye modelos de dominio,
+validaciones de negocio, filtros y ordenamientos (incluidos filtros combinables),
+búsqueda lineal/binaria, cálculos financieros, reportes, agregaciones y scoring/ranking.
+Los fixtures están en `packages/typeScriptUtilities/tests/`; los requisitos
+vigentes y las decisiones ampliadas están en `specs.md` y `README.md` del paquete.
+
+La demo de consola, `packages/typeScriptUtilities/demo.ts`, muestra las
+funciones con datos sintéticos. `packages/typeScriptUtilities/manual.html`
+ofrece una interfaz de navegador para elegir locación y fecha, buscar ítems y
+ejecutar validaciones, métricas, filtros, búsquedas y reportes globales. La
+página carga los módulos existentes de `utils/`; no altera ni envía datos
+operativos y requiere conexión a internet para Tailwind CSS y el transpilador
+TypeScript desde CDN. Las instrucciones para servirla localmente están en el
+README del paquete.
+
+Decisiones registradas: fechas locales calendario inclusivas en
+`America/Bogota`; las ventas incluyen `numberOfDiners` obligatorio; el scoring
+recibe `asOfDate` y las validaciones de locación reciben `currentYear` para evitar
+dependencia implícita del reloj. En comparación por país, se toma COP como moneda
+de origen para Colombia y USD para USA, convirtiendo después a la moneda objetivo.
+El reporte adicional `summarizeRevenue` incluye total, promedio, máximo y mínimo.
+
+Verificación ejecutada el 2026-11-12 desde `packages/typeScriptUtilities`:
+`npm run check` pasó el typecheck y los 47 fixtures; `npm run demo` y la página
+manual también se ejecutaron correctamente. El typecheck requirió inicializar
+`WasteByReason` con sus claves tipadas, reemplazando una conversión insegura de
+`Object.fromEntries`; el comportamiento de agrupación no cambió. La demo y la
+página manual usan datos ilustrativos, no cifras operativas reales de Brasaland.
 
 ## Actualización del 2026-10-21 — Sitio público y Brasa Points
 

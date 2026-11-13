@@ -1,0 +1,320 @@
+cd..<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brasaland | TypeScript Utilities Playground</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typescript@5.7.2/lib/typescript.js"></script>
+  </head>
+  <body class="min-h-screen bg-slate-950 text-slate-100">
+    <main class="mx-auto max-w-6xl px-5 py-10">
+      <header class="mb-8">
+        <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-orange-400">Brasaland · Herramientas</p>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">TypeScript Utilities Playground</h1>
+        <p class="mt-3 max-w-3xl text-slate-300">
+          Prueba las funciones reales de <code class="rounded bg-slate-800 px-1.5 py-0.5">utils/</code>
+          con datos de ejemplo. No son resultados operativos reales.
+        </p>
+      </header>
+
+      <section class="mb-6 rounded-2xl border border-slate-800 bg-slate-900 p-5">
+        <h2 class="mb-4 text-lg font-semibold">Parámetros de la prueba</h2>
+        <div class="grid gap-4 sm:grid-cols-3">
+          <label class="text-sm text-slate-300">
+            Locación
+            <select id="location" class="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100">
+              <option value="LOC-BOG">Brasaland Bogotá</option>
+              <option value="LOC-MIA">Brasaland Miami</option>
+            </select>
+          </label>
+          <label class="text-sm text-slate-300">
+            Fecha de operación
+            <input id="business-date" type="date" value="2025-01-15" class="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100">
+          </label>
+          <label class="text-sm text-slate-300">
+            Buscar ítem
+            <input id="item-name" type="search" value="Picanha 250g" class="mt-1.5 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-slate-100">
+          </label>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <button data-action="all" class="rounded-lg bg-orange-500 px-4 py-2 font-semibold text-slate-950 hover:bg-orange-400">Ejecutar todo</button>
+          <button data-action="validation" class="rounded-lg bg-slate-700 px-4 py-2 font-medium hover:bg-slate-600">Validaciones</button>
+          <button data-action="location" class="rounded-lg bg-slate-700 px-4 py-2 font-medium hover:bg-slate-600">Métricas por locación</button>
+          <button data-action="search" class="rounded-lg bg-slate-700 px-4 py-2 font-medium hover:bg-slate-600">Filtros y búsquedas</button>
+          <button data-action="global" class="rounded-lg bg-slate-700 px-4 py-2 font-medium hover:bg-slate-600">Reporte global</button>
+        </div>
+        <p id="status" role="status" class="mt-4 text-sm text-slate-400">Cargando funciones TypeScript…</p>
+      </section>
+
+      <section class="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+        <div class="mb-4 flex items-center justify-between gap-4">
+          <h2 class="text-lg font-semibold">Resultados</h2>
+          <button id="clear" class="text-sm text-slate-400 underline decoration-slate-600 underline-offset-4 hover:text-white">Limpiar</button>
+        </div>
+        <pre id="output" class="min-h-72 overflow-auto whitespace-pre-wrap rounded-xl bg-slate-950 p-4 text-sm leading-6 text-emerald-300">Esperando la carga de las utilidades…</pre>
+      </section>
+
+      <p class="mt-6 text-sm text-slate-400">
+        Para abrirlo, inicia un servidor HTTP desde la raíz del repositorio:
+        <code class="rounded bg-slate-800 px-1.5 py-0.5">python3 -m http.server 8000</code>
+        y visita <code class="rounded bg-slate-800 px-1.5 py-0.5">http://localhost:8000/packages/typeScriptUtilities/manual.html</code>.
+        Requiere conexión a internet para cargar Tailwind y el compilador de TypeScript desde CDN.
+      </p>
+    </main>
+
+    <script>
+      const menuItems = [
+        {
+          id: "ITEM-PICANHA",
+          name: "Picanha 250g",
+          category: "Meat",
+          basePrice: { USD: 25, COP: 100000 },
+          ingredientCost: { USD: 10, COP: 40000 },
+          prepTimeMinutes: 25,
+          isAvailableInColombia: true,
+          isAvailableInUSA: true,
+          allergens: [],
+          status: "Active",
+        },
+        {
+          id: "ITEM-LEMONADE",
+          name: "Limonada",
+          category: "Beverage",
+          basePrice: { USD: 5, COP: 20000 },
+          ingredientCost: { USD: 1, COP: 4000 },
+          prepTimeMinutes: 5,
+          isAvailableInColombia: true,
+          isAvailableInUSA: true,
+          allergens: [],
+          status: "Active",
+        },
+      ];
+
+      const locations = [
+        {
+          id: "LOC-BOG",
+          name: "Brasaland Bogotá",
+          city: "Bogotá",
+          country: "Colombia",
+          openingYear: 2018,
+          seatingCapacity: 80,
+          staffCount: 20,
+          monthlyRentCost: { USD: 2000, COP: 8000000 },
+          averageMonthlyUtilities: { USD: 200, COP: 800000 },
+          manager: "Ana Pérez",
+          status: "Active",
+        },
+        {
+          id: "LOC-MIA",
+          name: "Brasaland Miami",
+          city: "Miami",
+          country: "USA",
+          openingYear: 2020,
+          seatingCapacity: 60,
+          staffCount: 16,
+          monthlyRentCost: { USD: 2500, COP: 10000000 },
+          averageMonthlyUtilities: { USD: 250, COP: 1000000 },
+          manager: "Sam Lee",
+          status: "Active",
+        },
+      ];
+
+      const sales = [
+        {
+          id: "TXN-BOG-001",
+          locationId: "LOC-BOG",
+          itemId: "ITEM-PICANHA",
+          quantity: 2,
+          numberOfDiners: 2,
+          totalPrice: { USD: 50, COP: 200000 },
+          paymentMethod: "Credit card",
+          timestamp: new Date("2025-01-15T12:00:00-05:00"),
+          waiterName: "Luis",
+        },
+        {
+          id: "TXN-BOG-002",
+          locationId: "LOC-BOG",
+          itemId: "ITEM-LEMONADE",
+          quantity: 2,
+          numberOfDiners: 2,
+          totalPrice: { USD: 10, COP: 40000 },
+          paymentMethod: "Cash",
+          timestamp: new Date("2025-01-15T13:00:00-05:00"),
+          waiterName: "Marta",
+        },
+        {
+          id: "TXN-MIA-001",
+          locationId: "LOC-MIA",
+          itemId: "ITEM-PICANHA",
+          quantity: 1,
+          numberOfDiners: 2,
+          totalPrice: { USD: 25, COP: 100000 },
+          paymentMethod: "Digital wallet",
+          timestamp: new Date("2025-01-15T14:00:00-05:00"),
+          waiterName: "Chris",
+        },
+      ];
+
+      const wasteRecords = [
+        {
+          id: "WASTE-BOG-001",
+          locationId: "LOC-BOG",
+          itemId: "ITEM-PICANHA",
+          quantity: 1,
+          reason: "Cooking error",
+          cost: { USD: 2.5, COP: 10000 },
+          timestamp: new Date("2025-01-15T15:00:00-05:00"),
+          reportedBy: "Marta",
+        },
+      ];
+
+      const output = document.querySelector("#output");
+      const status = document.querySelector("#status");
+      let utilities;
+
+      const loadUtility = async (path) => {
+        const response = await fetch(path);
+        if (!response.ok) {
+          throw new Error(`No se pudo cargar ${path}: HTTP ${response.status}`);
+        }
+        const source = await response.text();
+        const compiled = ts.transpileModule(source, {
+          compilerOptions: {
+            module: ts.ModuleKind.ESNext,
+            target: ts.ScriptTarget.ES2022,
+          },
+        });
+        const url = URL.createObjectURL(new Blob([compiled.outputText], { type: "text/javascript" }));
+        try {
+          return await import(url);
+        } finally {
+          URL.revokeObjectURL(url);
+        }
+      };
+
+      const initialize = async () => {
+        if (location.protocol === "file:") {
+          throw new Error("Abre esta página mediante un servidor HTTP local; consulta las instrucciones debajo.");
+        }
+        const [collections, search, transformations, validations] = await Promise.all([
+          loadUtility("./utils/collections.ts"),
+          loadUtility("./utils/search.ts"),
+          loadUtility("./utils/transformations.ts"),
+          loadUtility("./utils/validations.ts"),
+        ]);
+        utilities = { collections, search, transformations, validations };
+        status.textContent = "Funciones TypeScript cargadas. Elige una prueba.";
+        output.textContent = "Listo. Selecciona una prueba o ejecuta todas.";
+      };
+
+      const selectedLocation = () =>
+        locations.find(({ id }) => id === document.querySelector("#location").value);
+
+      const selectedDate = () => {
+        const value = document.querySelector("#business-date").value;
+        if (!value) {
+          throw new Error("Selecciona una fecha válida.");
+        }
+        return new Date(`${value}T12:00:00-05:00`);
+      };
+
+      const runValidation = () => ({
+        menuItem: utilities.validations.validateMenuItem(menuItems[0]),
+        location: utilities.validations.validateLocation(selectedLocation(), 2025),
+        sale: utilities.validations.validateSaleTransaction(sales[0], menuItems),
+        wasteRecord: utilities.validations.validateWasteRecord(wasteRecords[0]),
+      });
+
+      const runLocationReport = () => {
+        const location = selectedLocation();
+        const currency = location.country === "Colombia" ? "COP" : "USD";
+        const day = selectedDate();
+        const locationSales = utilities.collections.filterSalesByLocation(sales, location.id);
+        const dailySales = utilities.collections.filterSalesByDateRange(locationSales, day, day);
+        return {
+          location: location.name,
+          country: location.country,
+          currency,
+          salesOnSelectedDate: dailySales.length,
+          dailyRevenue: utilities.transformations.calculateDailyRevenue(locationSales, day, currency),
+          averageTicket: utilities.transformations.calculateAverageTicket(locationSales, currency),
+          marginPercent: utilities.transformations.calculateLocationMargin(sales, menuItems, location.id, currency),
+          wasteCost: utilities.transformations.calculateWasteCost(wasteRecords, location.id, currency),
+        };
+      };
+
+      const runSearches = () => {
+        const sortedLocations = utilities.collections.sortLocationsByCapacity(locations, "asc");
+        const itemName = document.querySelector("#item-name").value;
+        return {
+          activeLocations: utilities.collections.filterActiveLocations(locations).map(({ name }) => name),
+          meatItems: utilities.collections.filterMenuItemsByCategory(menuItems, "Meat").map(({ name }) => name),
+          locationById: utilities.search.findLocationById(locations, selectedLocation().id),
+          menuItemByName: utilities.search.findMenuItemByName(menuItems, itemName),
+          binarySearchCapacity80: utilities.search.binarySearchLocationByCapacity(sortedLocations, 80),
+        };
+      };
+
+      const runGlobalReport = () => {
+        const day = selectedDate();
+        const comparison = utilities.transformations.calculateCountryComparison(sales, locations, menuItems, "USD");
+        const ranking = utilities.transformations.rankLocationsByPerformance(
+          locations,
+          sales,
+          wasteRecords,
+          menuItems,
+          day,
+          day,
+          day,
+        );
+        return {
+          currency: "USD",
+          countryComparison: comparison,
+          revenueSummary: utilities.transformations.summarizeRevenue(
+            sales.map(({ totalPrice }) => totalPrice.USD),
+          ),
+          topSellingItems: utilities.transformations.findTopSellingItems(sales, menuItems, 2)
+            .map(({ item, totalSold }) => ({ name: item.name, totalSold })),
+          paymentMethodCounts: utilities.transformations.countSalesByPaymentMethod(sales),
+          performanceRanking: ranking.map(({ location, score }) => ({ location: location.name, score })),
+        };
+      };
+
+      const actions = {
+        validation: () => ({ validations: runValidation() }),
+        location: runLocationReport,
+        search: runSearches,
+        global: runGlobalReport,
+        all: () => ({
+          note: "Datos de ejemplo; no representan cifras operativas reales.",
+          validations: runValidation(),
+          location: runLocationReport(),
+          filtersAndSearches: runSearches(),
+          global: runGlobalReport(),
+        }),
+      };
+
+      document.querySelectorAll("[data-action]").forEach((button) => {
+        button.addEventListener("click", () => {
+          try {
+            output.textContent = JSON.stringify(actions[button.dataset.action](), null, 2);
+            status.textContent = `Prueba ejecutada: ${button.textContent}.`;
+          } catch (error) {
+            status.textContent = "La prueba falló.";
+            output.textContent = error instanceof Error ? error.message : String(error);
+          }
+        });
+      });
+
+      document.querySelector("#clear").addEventListener("click", () => {
+        output.textContent = "";
+      });
+
+      initialize().catch((error) => {
+        status.textContent = "No se pudieron cargar las funciones.";
+        output.textContent = error instanceof Error ? error.message : String(error);
+      });
+    </script>
+  </body>
+</html>

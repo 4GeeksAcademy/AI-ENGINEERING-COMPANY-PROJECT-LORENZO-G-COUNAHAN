@@ -1,0 +1,16 @@
+{
+  "name": "@brasaland/typescript-utilities",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pure TypeScript utilities for Brasaland operational data",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "tsx tests/runCases.ts",
+    "demo": "tsx demo.ts",
+    "check": "npm run typecheck && npm test"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

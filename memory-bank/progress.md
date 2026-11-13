@@ -1,7 +1,7 @@
 # Progress — Brasaland AI Engineering
 
 > **Estado actual del desarrollo:** lo que funciona, lo que está pendiente y próximos pasos.
-> _Última actualización: 2026-10-21_
+> _Última actualización: 2026-11-11_
 
 ---
 
@@ -13,6 +13,29 @@ Inicio:   2026-10-15
 Fase:     Hito web implementado como demostración; plataforma IA en definición
 Estado:   Landing y formulario ejecutables; seguimiento detallado en tasks.md
 ```
+
+## Actualización del 2026-11-11 — TypeScript Utilities
+
+- Se implementó `packages/typeScriptUtilities`: modelos, validaciones,
+  filtros/ordenamientos, búsquedas, cálculos financieros, reportes,
+  agregaciones, scoring y ranking. Los criterios y decisiones están en sus
+  [specs](../packages/typeScriptUtilities/specs.md) y README.
+- Se agregaron fixtures y un runner de pruebas, además de configuración TypeScript
+  local (`tsconfig.json`) y scripts npm: `npm run typecheck`, `npm test` y
+  `npm run check`. Comandos detallados en el [README del paquete](../packages/typeScriptUtilities/README.md).
+- Decisiones relevantes: fechas locales inclusivas en `America/Bogota`,
+  `numberOfDiners` requerido para eficiencia, `asOfDate` explícita para
+  validación/scoring deterministas y comparación por país basada en COP para
+  Colombia y USD para USA antes de convertir a la moneda objetivo.
+- Se añadieron filtros combinables y `summarizeRevenue` (total, promedio,
+  máximo y mínimo) según requisitos adicionales.
+- **Verificación pendiente:** este entorno no tiene Node.js/npm, por lo que no
+  se ejecutaron compilación ni pruebas. El editor mantiene un diagnóstico de
+  resolución de `../utils/search` en `tests/searchCases.ts`, pese a existir
+  `utils/search.ts`. No se consideran aprobadas las pruebas hasta correr
+  `npm run check` en un entorno con Node/npm.
+
+Seguimiento detallado: [tasks.md](../packages/typeScriptUtilities/tasks.md).
 
 ---
 
